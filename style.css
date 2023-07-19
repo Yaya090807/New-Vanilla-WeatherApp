@@ -1,0 +1,72 @@
+.container{
+    max-width: 650px;    
+}
+
+.box1{
+    cursor: pointer;
+    background: linear-gradient(181deg, rgb(2, 0, 110) 15%, rgb(97, 149, 219) 158.5%);
+    border-radius: 8px;
+    font-family: arial, sans-serif;
+    color: aliceblue;
+    margin: 25px auto;
+    padding: 20px;
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS';
+}
+
+h1{
+    font-size: 35px;
+    font-weight: 100;
+    margin-bottom: 3px;
+}
+
+.tempdata{
+    font-size: 29px;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.update{
+    font-size: 9.8px;
+}
+
+#infoweather{
+    font-size: 22px;
+    font-style: italic;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+hr{
+    color: rgb(97, 149, 219);
+    
+}
+
+.nextdata{
+    text-align: center;
+}
+
+#nextdays{
+    border-left:thin solid rgb(97, 149, 219);
+    
+}
+
+#codedby{
+    color: aliceblue;
+    transition: .3s;
+    margin: 0px auto;
+    padding: 0px;
+}
+
+#codedby:hover{
+    color: rgb(97, 149, 219);
+}
+
+.extrainfo{
+    list-style: none;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
