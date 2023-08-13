@@ -9,6 +9,7 @@ function getcity (event){
     //Llamar al API Weather
     let apikey = "e8afbbe875eb43e7801438b2c0996358";
     let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
+console.log(apiurl);
 
     axios.get(apiurl).then(showdata);
 
@@ -24,7 +25,7 @@ function getcity (event){
         document.querySelector("#humiditynum").innerHTML = response.data.main.humidity;
         document.querySelector("#windnum").innerHTML = response.data.wind.speed;
         document.querySelector("#tempnum").innerHTML = Math.round(response.data.main.temp);
-
+        document.querySelector("#infoweather").innerHTML = response.data.weather[0].description;
 
     }
     

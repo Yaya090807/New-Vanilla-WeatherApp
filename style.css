@@ -50,6 +50,7 @@ h1{
     font-style: italic;
     margin-top: 0px;
     padding-top: 0px;
+    text-transform: capitalize;
 }
 
 hr{
