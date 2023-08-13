@@ -9,14 +9,38 @@
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-    
+
 
 </head>
 <body>
     <div class="container">
 
         <div class="box2">
-            Hello para poner el buscador. Simplemente estetica.
+
+            <form class="searcher">
+
+                <div class="row">                
+
+                    <div class="col-9">
+                        
+                            <input 
+                                type="search"
+                                placeholder="Type a city..."
+                                autocomplete="off"
+                                autofocus="on"  
+                                class="form-control shadow-md"  
+                            >
+                        
+                    </div>
+                    
+                    <div class="col-3">
+                        <button type="button" class="btn btn-primary w-100">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+           
         </div>
 
         <div class="box1">
