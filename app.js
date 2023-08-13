@@ -26,9 +26,12 @@ console.log(apiurl);
         document.querySelector("#windnum").innerHTML = response.data.wind.speed;
         document.querySelector("#tempnum").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#infoweather").innerHTML = response.data.weather[0].description;
+        
+        let iconelement = document.querySelector("#iconweather");
+        iconelement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
 
         //Cambio de fecha actual en ciudad buscada
-        document.querySelector("#datecurrent").innerHTML = formatate(response.data.dt * 1000.005);
+        document.querySelector("#datecurrent").innerHTML = formatate(response.data.dt * 1000);
 
             //Funcion para cambiar el formato de la fecha
             function formatate (timestamp){
@@ -88,7 +91,6 @@ console.log(apiurl);
     //Que responda al hacer click el form
     let searchform = document.querySelector("#searcher");
     searchform.addEventListener("submit",getcity);
-
 
 
 
