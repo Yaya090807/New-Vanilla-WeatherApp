@@ -27,6 +27,59 @@ console.log(apiurl);
         document.querySelector("#tempnum").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#infoweather").innerHTML = response.data.weather[0].description;
 
+        //Cambio de fecha actual en ciudad buscada
+        document.querySelector("#datecurrent").innerHTML = formatate(response.data.dt * 1000.005);
+
+            //Funcion para cambiar el formato de la fecha
+            function formatate (timestamp){
+                let date = new Date(timestamp);
+                //Horas
+                let hours = date.getHours();
+                if(hours<10){
+                    hours = `0${hours}`;
+                }
+            
+                let letra = "m.d.";
+                if (hours <12){
+                    letra ="a.m.";
+                } else
+                        if (hours>12){
+                    letra = "p.m.";
+                }
+
+                //Minutos
+                let minutes = date.getMinutes();
+                if(minutes<10){
+                    minutes = `0${minutes}`;
+                }
+
+                //Fecha
+                let fecha = date.getDate();
+
+                //Dias
+                let days = [ "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+                let day = days[date.getDay()];
+
+                //Mes
+                let months = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                  ];
+                let month = months[date.getMonth()];
+                  
+                return `${day} ${fecha} ${month}, ${hours}:${minutes} ${letra}`;
+            }
+            
     }
     
 
