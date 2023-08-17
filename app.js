@@ -9,7 +9,6 @@ function getcity (event){
     //Llamar al API Weather
     let apikey = "e8afbbe875eb43e7801438b2c0996358";
     let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}&units=metric`;
-console.log(apiurl);
 
     axios.get(apiurl).then(showdata);
 
@@ -26,6 +25,9 @@ console.log(apiurl);
         document.querySelector("#windnum").innerHTML = response.data.wind.speed;
         document.querySelector("#tempnum").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#infoweather").innerHTML = response.data.weather[0].description;
+
+        //Determinar valor para lo que da el API
+        celciustemp = response.data.main.temp;
         
         let iconelement = document.querySelector("#iconweather");
         iconelement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`);
@@ -92,7 +94,30 @@ console.log(apiurl);
     let searchform = document.querySelector("#searcher");
     searchform.addEventListener("submit",getcity);
 
+//Para cambiar las unidades de medidas de la temperatura
 
+    function displaynewfah (event){
+        event.preventDefault();
+        let fahrenheittemp = (celciustemp * 9) / 5 + 32;
+        let newtempnum = document.querySelector("#tempnum");
+        newtempnum.innerHTML = Math.round(fahrenheittemp);
+    }
 
+    let fahrenchange = document.querySelector("#fah-link");
+    fahrenchange.addEventListener("click", displaynewfah);
 
+    
 
+    function displaynewcel (event){
+        event.preventDefault();
+        let newtempnum2 = document.querySelector("#tempnum");
+        newtempnum2.innerHTML = Math.round(celciustemp);
+    }
+
+    let celchange = document.querySelector("#cel-link");
+    celchange.addEventListener("click", displaynewcel);
+
+    let celciustemp = null;
+
+//Mostrar data de Managua desde el comeienzo
+    showdata("Managua");
