@@ -101,6 +101,8 @@ function getcity (event){
         let fahrenheittemp = (celciustemp * 9) / 5 + 32;
         let newtempnum = document.querySelector("#tempnum");
         newtempnum.innerHTML = Math.round(fahrenheittemp);
+        celchange.classList.remove("active");
+        fahrenchange.classList.add("active");
     }
 
     let fahrenchange = document.querySelector("#fah-link");
@@ -112,6 +114,8 @@ function getcity (event){
         event.preventDefault();
         let newtempnum2 = document.querySelector("#tempnum");
         newtempnum2.innerHTML = Math.round(celciustemp);
+        celchange.classList.add("active");
+        fahrenchange.classList.remove("active");
     }
 
     let celchange = document.querySelector("#cel-link");

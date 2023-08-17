@@ -34,15 +34,35 @@ h1{
     margin-bottom: 3px;
 }
 
-.tempdata{
-    font-size: 29px;
-    text-align: left;
-    margin-top: 20px;
-    margin-bottom: 0px;
+.tempdata img{
+    margin-right: 10px;
+    height: 64px;
+    width: 64px;
 }
+
+.tempdata strong{
+   font-size: 60px;
+   font-weight: 400;
+    line-height: 1;
+}
+
+.active{
+    color: aliceblue;
+    cursor: default;
+    text-decoration: none;
+}    
+    
+.active:hover{
+    cursor: default;
+}
+
 
 .update{
     font-size: 9.8px;
+}
+
+#fah-link{
+    text-decoration: none;
 }
 
 #infoweather{
