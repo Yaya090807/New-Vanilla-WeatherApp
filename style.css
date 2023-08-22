@@ -80,7 +80,18 @@ hr{
 
 .nextdata{
     text-align: center;
+
 }
+
+.forecast-date{
+  font-size:14px;
+  color:antiquewhite;
+}
+
+.forecast-temp{
+    font-size:14px;
+    color:antiquewhite;
+  }
 
 #nextdays{
     border-left:thin solid rgb(97, 149, 219);
