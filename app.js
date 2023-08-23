@@ -123,5 +123,38 @@ function getcity (event){
 
     let celciustemp = null;
 
-//Mostrar data de Managua desde el comeienzo
-    showdata("Managua");
+//Para el forecast
+
+function displayforecast (){
+    let forecastelement = document.querySelector("#forecast");
+    
+    let days = [ "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+    let forecasthtml = `<div class="row">`;
+    days.forEach(function(day){
+        forecasthtml = forecasthtml +  
+        `   <div class="col-2">
+            <div class="forecast-date">
+                ${day} 
+            </div> 
+            
+            <img src="https://openweathermap.org/img/wn/02d.png"
+                alt="" 
+                width="38"
+                >
+            <div class="forecast-temp">
+                23°C
+            </div>
+        
+            </div>
+        `;
+
+    }); 
+
+    forecasthtml = forecasthtml + `</div>`;
+    forecastelement.innerHTML = forecasthtml;
+}
+
+displayforecast();
+
+
