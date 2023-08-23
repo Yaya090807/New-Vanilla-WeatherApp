@@ -1,12 +1,11 @@
 //Para agarrar la lat y long
 function getforecast(coordinates){
-console.log(coordinates);
-let apikey = "cabdbda40038ba7d1165b953b1c7bd6c";
-    let apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}`;
-console.log(apiurl);
-axios.get(apiurl).then(displayforecast);
-}
-
+    let apikey = "cabdbda40038ba7d1165b953b1c7bd6c";
+        let apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}`;
+    console.log(apiurl);
+    axios.get(apiurl).then(displayforecast);
+    }
+    
 //Para agarrar el valor del form y buscar datos de la ciudad escrita
 
 function getcity (event){
@@ -135,33 +134,49 @@ function getcity (event){
 
 //Para el forecast
 
-function displayforecast (response){
-    console.log(response.data.daily);
+function formatDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  
+    return days[day];
+  }
 
-    let forecastelement = document.querySelector("#forecast");
-    
-    let days = [ "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+function displayforecast (response){
+    let forecastdata = response.data.daily;
+   
+    let forecastelement = document.querySelector("#forecast-id");
 
     let forecasthtml = `<div class="row">`;
-    days.forEach(function(day){
-        forecasthtml = forecasthtml +  
-        `   <div class="col-2">
-            <div class="forecast-date">
-                ${day} 
-            </div> 
-            
-            <img src="https://openweathermap.org/img/wn/02d.png"
-                alt="" 
-                width="38"
-                >
-            <div class="forecast-temp">
-                23°C
-            </div>
-        
-            </div>
-        `;
+    forecastdata.forEach(function(forecastDay, index){
+        if (index < 7){
+            forecasthtml = forecasthtml + 
+            `   <div class="col-2">
 
-    }); 
+            <div class="forecast-date">
+            ${formatDay(forecastDay.dt)}
+            </div> 
+
+            <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+            alt="" 
+            width="38"
+            />
+
+            <div class="forecast-temp">
+            ${forecastDay.temp.day}°
+            </div>
+
+            </div>`;
+       }
+    });       
+        
+        
+        
+        
+        
+    
+     
+ 
 
     forecasthtml = forecasthtml + `</div>`;
     forecastelement.innerHTML = forecasthtml;
