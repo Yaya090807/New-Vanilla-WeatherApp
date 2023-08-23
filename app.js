@@ -1,8 +1,8 @@
 //Para agarrar la lat y long
 function getforecast(coordinates){
 console.log(coordinates);
-let apikey = "e8afbbe875eb43e7801438b2c0996358";
-    let apiurl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}`;
+let apikey = "cabdbda40038ba7d1165b953b1c7bd6c";
+    let apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}`;
 console.log(apiurl);
 axios.get(apiurl).then(displayforecast);
 }
@@ -136,7 +136,7 @@ function getcity (event){
 //Para el forecast
 
 function displayforecast (response){
-    console.log(response.data.list);
+    console.log(response.data.daily);
 
     let forecastelement = document.querySelector("#forecast");
     
