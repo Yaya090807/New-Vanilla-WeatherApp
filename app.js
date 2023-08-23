@@ -1,3 +1,12 @@
+//Para agarrar la lat y long
+function getforecast(coordinates){
+console.log(coordinates);
+let apikey = "e8afbbe875eb43e7801438b2c0996358";
+    let apiurl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}`;
+console.log(apiurl);
+axios.get(apiurl).then(displayforecast);
+}
+
 //Para agarrar el valor del form y buscar datos de la ciudad escrita
 
 function getcity (event){
@@ -25,7 +34,7 @@ function getcity (event){
         document.querySelector("#windnum").innerHTML = response.data.wind.speed;
         document.querySelector("#tempnum").innerHTML = Math.round(response.data.main.temp);
         document.querySelector("#infoweather").innerHTML = response.data.weather[0].description;
-
+        
         //Determinar valor para lo que da el API
         celciustemp = response.data.main.temp;
         
@@ -84,11 +93,12 @@ function getcity (event){
                   
                 return `${day} ${fecha} ${month}, ${hours}:${minutes} ${letra}`;
             }
-            
+           
+            getforecast(response.data.coord);
     }
-    
-
+        
 }
+
 
     //Que responda al hacer click el form
     let searchform = document.querySelector("#searcher");
@@ -125,7 +135,9 @@ function getcity (event){
 
 //Para el forecast
 
-function displayforecast (){
+function displayforecast (response){
+    console.log(response.data.list);
+
     let forecastelement = document.querySelector("#forecast");
     
     let days = [ "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -155,6 +167,6 @@ function displayforecast (){
     forecastelement.innerHTML = forecasthtml;
 }
 
-displayforecast();
+
 
 
